@@ -14,22 +14,30 @@ setupdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ###################################################################################
 
 function assertLaunchStartxScriptExists {
-	if [ ! -f ~/launchAtStartx.sh ]; then
+	if [ ! -f ~/launchAtStartX.sh ]; then
     		# script does not exist yet. Create it!
-    		cp ${setupdir}/system/launchAtStartx.sh ~/
+    		cp ${setupdir}/launchAtStartX.sh ~/
   	fi
   	if [ ! -f ~/.config/autostart/launchAtStartx.desktop ]; then
 		if [ ! -d ~/.config/autostart ]; then
 			mkdir ~/.config/autostart
 		fi
     		# launchAtStartx.desktop does not exist yet. Create it!
-    		cp -f ${setupdir}/system/launchAtStartx.desktop ~/.config/autostart/
+    		cp -f ${setupdir}/launchAtStartX.desktop ~/.config/autostart/
   	fi
+}
+
+function setupUserFrep {
+	sudo cp ${setupdir}/20-lubuntu.conf /etc/lightdm/lightdm.conf.d/20-lubuntu.conf
+	cp ${setupdir}/chromium-browser.desktop /home/frep/Desktop/
+	cp ${setupdir}/lxterminal.desktop /home/frep/Desktop/
+	cp ${setupdir}/b2android.desktop /home/frep/Desktop/
 }
 
 function createUserFrep {
 	sudo adduser frep
 	sudo addgroup frep sudo
+	setupUserFrep
 }
 
 function setKeyboardlayout {
@@ -47,10 +55,6 @@ function updateAndUpgrade {
 
 function installBasics {
 	sudo apt-get install nano git -y
-}
-
-function useOwnBashRc {
-	cp ${setupdir}/system/.bashrc ~/.bashrc
 }
 
 function installConky {
@@ -102,7 +106,6 @@ function installROS {
 #setTimezone
 #createUserFrep
 #installBasics
-#useOwnBashRc
 #installConky
 #startConkyAtStartx
 #installROS
@@ -110,16 +113,6 @@ function installROS {
 ###################################################################################
 # reminders (not scripted)
 ###################################################################################
-
-# NEW USER
-# create new user with "sudo adduser <newUser>"  (not useradd ...)
-# use "sudo addgroup <newUser> <group>" for the following groups:
-# adm dialout cdrom audio dip video plugdev admin
-
-# AUTOLOGIN FREP IN XFCE
-# change /etc/lxdm/default.conf:
-# autologin=frep
-# session=/usr/bin/startxfce4
 
 # ROS -> Verifying os name
 # change /etc/lsb-release to the following:

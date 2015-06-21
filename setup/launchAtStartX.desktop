@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=launchAtStartX
+Comment=
+Exec=./launchAtStartX.sh
+StartupNotify=false
+Terminal=false
+Hidden=false
+
