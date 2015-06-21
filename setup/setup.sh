@@ -55,7 +55,7 @@ function updateAndUpgrade {
 }
 
 function installBasics {
-	sudo apt-get install nano git -y
+	sudo apt-get install nano git psmisc -y
 }
 
 function installConky {
@@ -102,12 +102,12 @@ function installROS {
 # program
 ###################################################################################
 
-#updateAndUpgrade
+updateAndUpgrade
 #setKeyboardlayout
 #setTimezone
 #createUserFrep
 #installBasics
-#installConky
+installConky
 #startConkyAtStartx
 #installROS
 
