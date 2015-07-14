@@ -18,11 +18,11 @@ function assertLaunchStartxScriptExists {
     		# script does not exist yet. Create it!
     		cp ${setupdir}/launchAtStartX.sh ~/
   	fi
-  	if [ ! -f ~/.config/autostart/launchAtStartx.desktop ]; then
+  	if [ ! -f ~/.config/autostart/launchAtStartX.desktop ]; then
 		if [ ! -d ~/.config/autostart ]; then
 			mkdir ~/.config/autostart
 		fi
-    		# launchAtStartx.desktop does not exist yet. Create it!
+    		# launchAtStartX.desktop does not exist yet. Create it!
     		cp -f ${setupdir}/launchAtStartX.desktop ~/.config/autostart/
   	fi
 }
@@ -31,7 +31,6 @@ function setupUserFrep {
 	sudo cp ${setupdir}/20-lubuntu.conf /etc/lightdm/lightdm.conf.d/20-lubuntu.conf
 	cp ${setupdir}/chromium-browser.desktop /home/frep/Desktop/
 	cp ${setupdir}/lxterminal.desktop /home/frep/Desktop/
-	cp ${setupdir}/b2android.desktop /home/frep/Desktop/
 	cp ${setupdir}/.gitconfig /home/frep/
 }
 
@@ -64,15 +63,15 @@ function installConky {
 
 function startConkyAtStartx {
 	assertLaunchStartxScriptExists
-	cat ~/launchAtStartx.sh | sed '/^exit 0/d' > tmpFile
+	cat ~/launchAtStartX.sh | sed '/^exit 0/d' > tmpFile
 	echo "# CONKY" >> tmpFile
 	echo "killall conky" >> tmpFile
 	echo "sleep 5" >> tmpFile
 	echo "conky --config=.conky/.conkyrc -d &" >> tmpFile
 	echo "" >> tmpFile
 	echo "exit 0" >> tmpFile
-	sudo mv tmpFile ~/launchAtStartx.sh
-	sudo chmod +x ~/launchAtStartx.sh
+	sudo mv tmpFile ~/launchAtStartX.sh
+	sudo chmod +x ~/launchAtStartX.sh
 }
 
 function installROS {
@@ -102,12 +101,12 @@ function installROS {
 # program
 ###################################################################################
 
-updateAndUpgrade
+#updateAndUpgrade
 #setKeyboardlayout
 #setTimezone
 #createUserFrep
 #installBasics
-installConky
+#installConky
 #startConkyAtStartx
 #installROS
 
