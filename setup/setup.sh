@@ -55,7 +55,7 @@ function updateAndUpgrade {
 }
 
 function installBasics {
-	sudo apt-get install nano git psmisc -y
+	sudo apt-get install nano git psmisc build-essential -y
 }
 
 function installConky {
@@ -111,14 +111,4 @@ function installROS {
 #startConkyAtStartx
 #installROS
 
-###################################################################################
-# reminders (not scripted)
-###################################################################################
-
-# ROS -> Verifying os name
-# change /etc/lsb-release to the following:
-# DISTRIB_ID=Ubuntu
-# DISTRIB_RELEASE=14.04
-# DISTRIB_CODENAME=trusty
-# DISTRIB_DESCRIPTION="Ubuntu 14.04"
 
