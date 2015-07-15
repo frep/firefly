@@ -53,7 +53,7 @@ default_color gray
 default_shade_color red
 default_outline_color green
 color1 DimGray			# text
-color2 royal blue		# Header title
+color2 Orange			# Header title
 color3 DarkSlateGray		# Header line
 
 # graphs
@@ -70,9 +70,9 @@ template2 ${font}${color1}\1 $alignr\2
 ########################################################################### 
 TEXT
  
-${font Arial:size=20}${color Red2}FIREFLY-RK3288${color Ivory}
+${font Arial:size=20}${color Orange2}FIREFLY-RK3288${color Ivory}
 #${font Arial:size=20}${color Ivory}${time %T}
-${font Arial:size=15}${alignc}${time %A %d %B %Y}
+${font Arial:size=15}${time %A %d %B %Y}
  
 ${voffset -80}
 ${color DimGray}
@@ -85,7 +85,7 @@ ${template2 Uptime ${uptime}}
 ${template1 PROCESSORS}
 $font${color1}RK3288 Cortex-A17 quad core@ 1.8GHz
 ${if_existing /sys/devices/virtual/thermal/thermal_zone0/temp}\
-${color1}Temp  (°mC) $alignr${execi 5 cat /sys/devices/virtual/thermal/thermal_zone0/temp}
+${color1}Temp  (°C) $alignr${execi 5 cat /sys/class/hwmon/hwmon0/device/temp1_input}
 ${else}\
 ${endif}\
 ${if_existing /sys/devices/system/cpu/cpu0}\
