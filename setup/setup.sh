@@ -97,6 +97,23 @@ function installROS {
 	sudo apt-get install python-rosinstall -y
 }
 
+function setupVnc {
+	sudo apt-get install netatalk x11vnc -y
+	x11vnc -storepasswd
+	if [ ! -f ~/.config/autostart/x11vnc.desktop ]; then
+                if [ ! -d ~/.config/autostart ]; then
+                        mkdir ~/.config/autostart
+                fi
+                # x11vnc.desktop does not exist yet. Create it!
+                cp -f ${setupdir}/x11vnc.desktop ~/.config/autostart/
+        fi
+	# enable screensharing in finder on OS X
+	if [ -d /etc/avahi/services ]; then
+		sudo cp ${setupdir}/rfb.service /etc/avahi/services
+		sudo cp ${setupdir}/afpd.service /etc/avahi/services
+	fi
+}
+
 
 ###################################################################################
 # program
@@ -110,5 +127,5 @@ function installROS {
 #installConky
 #startConkyAtStartx
 #installROS
-
+setupVnc
 

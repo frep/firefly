@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=x11vnc
+Comment=
+Exec=x11vnc -bg -display :0 -forever -usepw -ultrafilexfer
+StartupNotify=false
+Terminal=false
