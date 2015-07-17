@@ -114,6 +114,34 @@ function setupVnc {
 	fi
 }
 
+function installJava {
+	# unpack archive
+	sudo tar zxvf ${setupdir}/jdk-8u51-linux-arm-vfp-hflt.tar.gz -C /opt
+	# Set default java and javac to the new installed jdk8
+	sudo update-alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_51/bin/javac 1
+	sudo update-alternatives --install /usr/bin/java java /opt/jdk1.8.0_51/bin/java 1
+	sudo update-alternatives --config javac
+	sudo update-alternatives --config java
+	# set JAVA_HOME variable and PATH
+	sudo echo "JAVA_HOME=\"/opt/jdk1.8.0_51\"" >> /etc/environment
+	echo "" >> ~/.bashrc
+  	echo "export JAVA_HOME=\"/opt/jdk1.8.0_51\"" >> ~/.bashrc
+  	echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> ~/.bashrc
+}
+
+function installKaraf {
+	# unpack archive
+	sudo tar zxvf ${setupdir}/apache-karaf-4.0.0.tar.gz -C /opt
+	# set KARAFHOME variable and PATH
+	echo "" >> ~/.bashrc
+  	echo "export KARAFHOME=\"/opt/karaf/apache-karaf-4.0.0\"" >> ~/.bashrc
+  	echo "export PATH=\$PATH:\$KARAFHOME/bin" >> ~/.bashrc
+}
+
+function installOffice {
+	sudo apt-get install evince libreoffice -y
+}
+
 
 ###################################################################################
 # program
@@ -127,5 +155,8 @@ function setupVnc {
 #installConky
 #startConkyAtStartx
 #installROS
-setupVnc
+#setupVnc
+#installJava
+#installKaraf
+#installOffice
 
