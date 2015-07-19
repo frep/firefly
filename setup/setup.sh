@@ -153,6 +153,17 @@ function replaceNetworkManagerWithWicd {
 	sudo reboot
 }
 
+function startWifiatStartX {
+	assertLaunchStartxScriptExists
+        cat ~/launchAtStartX.sh | sed '/^exit 0/d' > tmpFile
+        echo "# start WIFI interface wlan0" >> tmpFile
+	echo "sudo wifi-on.sh" >> tmpFile
+        echo "exit 0" >> tmpFile
+        sudo mv tmpFile ~/launchAtStartX.sh
+        sudo chmod +x ~/launchAtStartX.sh
+
+}
+
 ###################################################################################
 # program
 ###################################################################################
@@ -169,6 +180,7 @@ function replaceNetworkManagerWithWicd {
 #installJava
 #installKaraf
 #installOffice
+#startWifiatStartX
 
 # Restart is needed after following function
-replaceNetworkManagerWithWicd
+#replaceNetworkManagerWithWicd

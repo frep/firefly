@@ -163,8 +163,5 @@ ${else}\
 ${color1}State: Offline
 ${endif}\
 #${gw_iface}
-${template1 Logging}
-${font}${color1}${exec tail -n4 /var/log/syslog | fold -w50}
-#${font}${color1}${exec  sed '/e000b000.eth/d' /var/log/syslog | tail -n4 | fold -w50}
 # EOF
 
