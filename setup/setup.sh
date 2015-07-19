@@ -142,6 +142,16 @@ function installOffice {
 	sudo apt-get install evince libreoffice -y
 }
 
+function replaceNetworkManagerWithWicd {
+	#install wicd
+	sudo apt-get install wicd -y
+	#uninstall networkmanager
+	sudo service network-manager stop
+  	sudo update-rc.d -f network-manager remove
+  	sudo apt-get purge network-manager -y
+	#reboot needed!
+	sudo reboot
+}
 
 ###################################################################################
 # program
@@ -160,3 +170,5 @@ function installOffice {
 #installKaraf
 #installOffice
 
+# Restart is needed after following function
+replaceNetworkManagerWithWicd

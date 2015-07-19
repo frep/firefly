@@ -11,7 +11,7 @@ ToDo's
 - [x] setup.sh: install Karaf
 - [ ] setup.sh: install ruby (? or get used to python)
 - [ ] setup.sh: install InoTool and Arduino
-- [ ] setup.sh: use wicd ? 
+- [x] setup.sh: use wicd ? 
 - [ ] setup.sh: maybe using xfce ?
 - [ ] get used to gpio's 
 - [x] install libreoffice and pdfviewer
