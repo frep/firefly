@@ -49,12 +49,12 @@ uppercase no
 
 # colors
 # ======
-default_color gray
+default_color Dimgray
 default_shade_color red
 default_outline_color green
-color1 DimGray			# text
+color1 Ivory			# text
 color2 Orange			# Header title
-color3 DarkSlateGray		# Header line
+color3 Orange			# Header line
 
 # graphs
 # ======
@@ -163,5 +163,15 @@ ${else}\
 ${color1}State: Offline
 ${endif}\
 #${gw_iface}
+###########################################################################
+${template1 BLUETOOTH}
+# check, if interface hci0 exists
+${if_existing /sys/class/bluetooth/hci0}\
+${color1}Interface: hci0 up.
+${font}${color1} BT-Addr ${alignr}${execi 5 cat /sys/class/bluetooth/hci0/address}
+${else}\
+${color1}Interface: hci0 down.
+${endif}\
+###########################################################################
 # EOF
 
