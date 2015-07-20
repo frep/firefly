@@ -27,20 +27,6 @@ function assertLaunchStartxScriptExists {
   	fi
 }
 
-function setupUserFrep {
-	sudo cp ${setupdir}/20-lubuntu.conf /etc/lightdm/lightdm.conf.d/20-lubuntu.conf
-	cp ${setupdir}/chromium-browser.desktop /home/frep/Desktop/
-	cp ${setupdir}/lxterminal.desktop /home/frep/Desktop/
-	cp ${setupdir}/.gitconfig /home/frep/
-	cp ${setupdir}/.conkyrc /home/frep/
-}
-
-function createUserFrep {
-	sudo adduser frep
-	sudo addgroup frep sudo
-	setupUserFrep
-}
-
 function setKeyboardlayout {
   	sudo dpkg-reconfigure keyboard-configuration
 }
@@ -185,7 +171,6 @@ function startWifiatStartX {
 #updateAndUpgrade
 #setKeyboardlayout
 #setTimezone
-#createUserFrep
 #installBasics
 #installConky
 #startConkyAtStartx
