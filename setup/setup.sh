@@ -60,6 +60,8 @@ function installBasics {
 
 function installConky {
 	sudo apt-get install conky -y
+	# give conky permission to get wireless informations
+	sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/conky
 }
 
 function startConkyAtStartx {

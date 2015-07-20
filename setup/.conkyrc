@@ -147,12 +147,12 @@ ${if_existing /sys/class/net/wlan0}\
 # check, if interface wlan0 is up
 ${if_existing /sys/class/net/wlan0/operstate up}\
 ${color1}Interface: wlan0  ${alignr}${color1}IP: ${addr wlan0}
-${font}${color1}               Down ${alignr}${downspeed wlan0}
-${font}${color1}               Up ${alignr}${upspeed wlan0}
-${font}${color1}               Downloaded ${alignr}${totaldown wlan0}
-${font}${color1}               Uploaded ${alignr}${totalup wlan0}
-${font}${color1}               ESSID ${alignr}${wireless_essid wlan0}
-${font}${color1}               Quality ${alignr}${wireless_link_qual_perc wlan0}%
+${font}${color1}                  ESSID ${alignr}${wireless_essid wlan0}
+${font}${color1}                  Quality ${alignr}${wireless_link_qual_perc wlan0}%
+${font}${color1}Down: ${downspeedf wlan0}k/s ${alignr} Up: ${upspeedf wlan0}k/s
+${downspeedgraph wlan0 20,110} ${alignr}${upspeedgraph wlan0 20,110}
+${font}${color1}Total: ${totaldown wlan0} ${alignr} Total: ${totalup wlan0}
+
 ${else}\
 ${color1}Interface: wlan0 down.
 ${endif}\
