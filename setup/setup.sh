@@ -153,6 +153,18 @@ function replaceNetworkManagerWithWicd {
 	sudo reboot
 }
 
+function replaceWicdWithNetworkManager {
+	#install network-manager
+	sudo apt-get install network-manager -y
+	#uninstall wicd
+	sudo service wicd stop
+	sudo update-rc.d -f wicd remove
+	sudo apt-get purge wicd -y
+	sudo apt-get autoremove -y
+	#reboot needed!
+	sudo reboot
+}
+
 function startWifiatStartX {
 	assertLaunchStartxScriptExists
         cat ~/launchAtStartX.sh | sed '/^exit 0/d' > tmpFile
@@ -184,3 +196,4 @@ function startWifiatStartX {
 
 # Restart is needed after following function
 #replaceNetworkManagerWithWicd
+#replaceWicdWithNetworkManager
