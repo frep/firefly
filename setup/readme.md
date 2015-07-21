@@ -8,11 +8,13 @@ Steps to setup the firefly-rk3288
 ToDo's
 ------
 - [x] separation of create User and rest of setup.
+- [ ] createUserFrep.sh: delete default user firefly
 - [x] setup.sh: install Java 8
 - [x] setup.sh: install Karaf
+- [ ] use separate repository for additional/optional software like java, karaf, etc
 - [ ] setup.sh: install ruby (? or get used to python)
 - [ ] setup.sh: install InoTool and Arduino
 - [x] setup.sh: use wicd ? -> keep networkmanager due to some wicd - problems!
 - [ ] setup.sh: maybe using xfce ?
 - [ ] get used to gpio's 
-- [x] install libreoffice and pdfviewer
+- [x] setup.sh: install libreoffice and pdfviewer
