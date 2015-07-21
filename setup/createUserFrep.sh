@@ -23,8 +23,8 @@ function setupUserFrep {
 }
 
 function createUserFrep {
-	# sudo adduser frep
-	# sudo addgroup frep sudo
+	sudo adduser frep
+	sudo addgroup frep sudo
 	setupUserFrep
 }
 
