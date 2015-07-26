@@ -103,8 +103,17 @@ function setupVnc {
 }
 
 function installJava {
+    # assert git is installed
+    installBasics
+    # get java source
+    cd
+    git clone https://github.com/frep/JavaArm
+    cd JavaArm
 	# unpack archive
-	sudo tar zxvf ${setupdir}/jdk-8u51-linux-arm-vfp-hflt.tar.gz -C /opt
+	sudo tar zxvf jdk-8u51-linux-arm-vfp-hflt.tar.gz -C /opt
+    # cleanup
+    cd ..
+    sudo rm -rf JavaArm
 	# Set default java and javac to the new installed jdk8
 	sudo update-alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_51/bin/javac 1
 	sudo update-alternatives --install /usr/bin/java java /opt/jdk1.8.0_51/bin/java 1
