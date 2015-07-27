@@ -164,6 +164,7 @@ ${color1}State: Offline
 ${endif}\
 #${gw_iface}
 ###########################################################################
+
 ${template1 BLUETOOTH}
 # check, if interface hci0 exists
 ${if_existing /sys/class/bluetooth/hci0}\
