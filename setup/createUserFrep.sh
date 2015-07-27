@@ -28,9 +28,19 @@ function createUserFrep {
 	setupUserFrep
 }
 
+function deleteUserFirefly {
+	# switch to user root
+	sudo su
+	# delete user firefly and remove the correspondig home directory
+	userdel -r firefly
+}
 
 ###################################################################################
 # program
 ###################################################################################
 
 createUserFrep
+deleteUserFirefly
+
+sudo reboot
+
