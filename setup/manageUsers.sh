@@ -29,17 +29,12 @@ function createUserFrep {
 }
 
 function changeRootPassword {
-	# switch to user root
-	sudo su
-	# change password
-	passwd
+	# execute passwd command as user root
+	su -c 'passwd'
 }
 
 function deleteUserFirefly {
-	# switch to user root
-	sudo su
-	# delete user firefly and remove the correspondig home directory
-	userdel -r firefly
+	su -c 'userdel -r firefly'
 }
 
 ###################################################################################
