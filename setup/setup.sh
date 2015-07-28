@@ -170,8 +170,20 @@ function startWifiatStartX {
         echo "exit 0" >> tmpFile
         sudo mv tmpFile ~/launchAtStartX.sh
         sudo chmod +x ~/launchAtStartX.sh
-
 }
+
+function installXubuntu {
+	sudo apt-get install xubuntu-desktop -y
+}
+
+function changeDesktopToXubuntu {
+	sudo sed -i 's/Lubuntu/xubuntu/g' /etc/lightdm/lightdm.conf.d/20-lubuntu.conf
+}
+
+function changeDesktopToLubuntu {
+        sudo sed -i 's/xubuntu/Lubuntu/g' /etc/lightdm/lightdm.conf.d/20-lubuntu.conf
+}
+
 
 ###################################################################################
 # program
@@ -189,7 +201,8 @@ function startWifiatStartX {
 #installKaraf
 #installOffice
 #startWifiatStartX
+#installXubuntu
+changeDesktopToXubuntu
+#changeDesktopToLubuntu
 
-# Restart is needed after following function
-#replaceNetworkManagerWithWicd
-#replaceWicdWithNetworkManager
+#sudo reboot
