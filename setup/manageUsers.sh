@@ -1,6 +1,6 @@
 #!/bin/bash
 ###################################################################################
-#  file: createUserFrep.sh
+#  file: manageUsers.sh
 # autor: frep
 ###################################################################################
 # paths and variables
@@ -28,6 +28,13 @@ function createUserFrep {
 	setupUserFrep
 }
 
+function changeRootPassword {
+	# switch to user root
+	sudo su
+	# change password
+	passwd
+}
+
 function deleteUserFirefly {
 	# switch to user root
 	sudo su
@@ -40,6 +47,7 @@ function deleteUserFirefly {
 ###################################################################################
 
 createUserFrep
+changeRootPassword
 deleteUserFirefly
 
 sudo reboot
