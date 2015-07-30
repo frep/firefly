@@ -8,7 +8,7 @@ Steps to setup the firefly-rk3288
 ToDo's
 ------
 - [x] separation of user management and rest of setup.
-- [x] manageUsers.sh: delete default user firefly
+- [ ] setup.sh: move delete default user firefly into setup.sh -> manageUsers.sh is mostly executed as user firefly
 - [x] manageUsers.sh: change root password
 - [x] setup.sh: install Java 8
 - [x] setup.sh: install Karaf
