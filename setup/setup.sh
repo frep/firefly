@@ -27,6 +27,10 @@ function assertLaunchStartxScriptExists {
   	fi
 }
 
+function deleteUserFirefly {
+	sudo userdel -r firefly
+}
+
 function setKeyboardlayout {
   	sudo dpkg-reconfigure keyboard-configuration
 }
@@ -177,6 +181,7 @@ function installXubuntu {
 }
 
 function changeDesktopToXubuntu {
+	installXubuntu
 	sudo sed -i 's/Lubuntu/xubuntu/g' /etc/lightdm/lightdm.conf.d/20-lubuntu.conf
 }
 
@@ -189,19 +194,19 @@ function changeDesktopToLubuntu {
 # program
 ###################################################################################
 
-#updateAndUpgrade
-#setKeyboardlayout
-#setTimezone
-#installBasics
-#installConky
-#startConkyAtStartx
-#installROS
-#setupVnc
-#installJava
-#installKaraf
-#installOffice
-#startWifiatStartX
-#installXubuntu
+deleteUserFirefly
+updateAndUpgrade
+setKeyboardlayout
+setTimezone
+installBasics
+installConky
+startConkyAtStartx
+installROS
+setupVnc
+installJava
+installKaraf
+installOffice
+startWifiatStartX
 changeDesktopToXubuntu
 #changeDesktopToLubuntu
 
