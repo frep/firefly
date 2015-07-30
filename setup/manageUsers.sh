@@ -33,9 +33,6 @@ function changeRootPassword {
 	su -c 'passwd'
 }
 
-function deleteUserFirefly {
-	su -c 'userdel -r firefly'
-}
 
 ###################################################################################
 # program
@@ -43,7 +40,6 @@ function deleteUserFirefly {
 
 createUserFrep
 changeRootPassword
-deleteUserFirefly
 
 sudo reboot
 
