@@ -5,6 +5,11 @@ Steps to setup the firefly-rk3288
 3. Optional: run `./manageUsers.sh`
 4. Run `./setup.sh`
 
+manageUsers.sh description
+--------------------------
+* create user frep (with my prefered settings)
+* change root password (old password is firefly)
+
 setup.sh description
 --------------------
 The `setup.sh` script provides the following functions:
@@ -16,15 +21,13 @@ The `setup.sh` script provides the following functions:
 * installation of java8 
 * installation of karaf
 * installation of the xubuntu desktop
+* install libreoffice and evince (pdfviewer)
 
 ToDo's
 ------
-- [x] separation of user management and rest of setup.
 - [x] setup.sh: move delete default user firefly into setup.sh (untested)
-- [x] manageUsers.sh: change root password
 - [ ] setup.sh: try to update bluez
 - [ ] setup.sh: install ruby (? or get used to python)
 - [ ] setup.sh: install InoTool and Arduino
 - [x] setup.sh: use wicd ? -> keep networkmanager due to some wicd - problems!
 - [ ] get used to gpio's 
-- [x] setup.sh: install libreoffice and pdfviewer
